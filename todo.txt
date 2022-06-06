@@ -1,7 +1,7 @@
 Test if unit conversions work
-Json file
-Split server provider and city
-Expand list
+Json file for settings
+Add to lists
 Median
 Collect results
-Tkinter GUI
+Column headers
+Manual servers to test

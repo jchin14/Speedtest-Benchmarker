@@ -1,4 +1,4 @@
-# Version 1.2.0
+# Version 1.2.3
 
 import os
 import csv
@@ -6,7 +6,7 @@ import time
 import datetime
 
 wait = 1
-resultsCSV = r"./Results/results_all_servers.csv"
+resultsCSV = r"./results_all_servers.csv"
 startTime = time.time()
 csvRows = []
 OCList = [12491]
@@ -20,7 +20,7 @@ preselectedServers = [12491,2169,12492,6355,12493,2165,12495,234,12494,6153,2846
 
 def average_latency():
     totalLatency = 0
-    colLatency = [x[3]for x in csvRows]
+    colLatency = [x[4]for x in csvRows]
     for value in colLatency:
         totalLatency += float(value)
     aveLatency = round(totalLatency / len(colLatency),2)
@@ -28,7 +28,7 @@ def average_latency():
 
 def average_jitter():
     totalJitter = 0
-    colJitter = [x[4]for x in csvRows]
+    colJitter = [x[5]for x in csvRows]
     for value in colJitter:
         totalJitter += float(value)
     aveJitter = round(totalJitter / len(colJitter),2)
@@ -36,7 +36,7 @@ def average_jitter():
 
 def average_dl_speed():
     totalDL = 0
-    colDL = [x[5]for x in csvRows]
+    colDL = [x[6]for x in csvRows]
     for value in colDL:
         totalDL += float(value)
     aveDL = round(totalDL / len(colDL),2)
@@ -44,7 +44,7 @@ def average_dl_speed():
 
 def average_ul_speed():
     totalUL = 0
-    colUL = [x[7]for x in csvRows]
+    colUL = [x[8]for x in csvRows]
     for value in colUL:
         totalUL += float(value)
     aveUL = round(totalUL / len(colUL),2)
@@ -52,7 +52,7 @@ def average_ul_speed():
 
 def average_pl():
     totalPL = 0
-    colPL = [x[9]for x in csvRows]
+    colPL = [x[10]for x in csvRows]
     for value in colPL:
         totalPL += float(value)
     avePL = round(totalPL / len(colPL),2)
@@ -66,8 +66,8 @@ def total_tests():
 
 def total_data():
     totalData = 0
-    colDownData = [x[6]for x in csvRows]
-    colUpData = [x[8]for x in csvRows]
+    colDownData = [x[7]for x in csvRows]
+    colUpData = [x[9]for x in csvRows]
     for value in colDownData:
         totalData += float(value)
     for value in colUpData:
@@ -77,7 +77,7 @@ def total_data():
 
 def average_duration():
     totalDuration = 0
-    colDuration = [x[12]for x in csvRows]
+    colDuration = [x[13]for x in csvRows]
     for value in colDuration:
         totalDuration += float(value)
     aveDuration = round(totalDuration / len(colDuration),2)
@@ -136,7 +136,7 @@ try:
 
     while True:
         serverIDList = []
-        regionsOrNum = input("\nSelect servers by region? Or press enter to select by number/all servers: ")
+        regionsOrNum = input("\n\nSelect servers by region? Or press enter to select by number/all servers: ")
         
         if regionsOrNum == "":
             pass
@@ -187,6 +187,7 @@ try:
             print(f"Positive integers between 0 and {serverIDCount} only.")
         except:
             print(f"Please enter only whole numbers.")
+
     #print("\nBJROXN")
 except KeyboardInterrupt:
     exit()
@@ -197,7 +198,7 @@ if allServers:
             reader = csv.reader(csvfile)
             for row in reader:
                 csvRows.append(row)
-        colID = [x[1]for x in csvRows]
+        colID = [x[2]for x in csvRows]
         serverID = int(colID[-1]) + 1
         csvfile.close()
     except:
@@ -208,7 +209,7 @@ else:
             reader = csv.reader(csvfile)
             for row in reader:
                 csvRows.append(row)
-        colID = [x[1]for x in csvRows]
+        colID = [x[2]for x in csvRows]
         lastServer = int(colID[-1])
         csvfile.close()
 
@@ -269,6 +270,14 @@ while True:
                     serverList[i] = ""
             result[3] = "".join(serverList)
 
+            cityList = list(result[3])
+            dashIndex = 999
+            for i in range(len(cityList)):
+                if cityList[i] == "-":
+                    dashIndex = i
+            result[3] = "".join(cityList[:dashIndex-1])
+            city = "".join(cityList[dashIndex+2:])
+
             ISPList = list(result[4])
             for i in range(len(ISPList)):
                 if ISPList[i] == ",":
@@ -281,7 +290,7 @@ while True:
             for i in range(len(urlList)):
                 if urlList[i] == ",":
                     urlList[i] = ";"
-                if i < 13:
+                if i < 48:
                     urlList[i] = ""
             result[11] = "".join(urlList)
 
@@ -411,7 +420,7 @@ while True:
             testTime = "".join(timeList)
 
             with open(resultsCSV, 'a') as csvfile:
-                resultList = [result[3],str(serverID),result[4],result[5],jitter,result[7],downData,result[9],upData,result[10],testTime,testDuration,result[11]]
+                resultList = [city,result[3],str(serverID),result[4],result[5],jitter,result[7],downData,result[9],upData,result[10],testTime,testDuration,result[11]]
                 for item in resultList:
                     csvfile.write(item)
                     if item != result[11]:
@@ -419,9 +428,8 @@ while True:
                 csvfile.write("\n")
 
         except:
-            pass
+            time.sleep(wait)
         
-        #time.sleep(wait/2)
         if allServers:
             serverID += 1
         else:

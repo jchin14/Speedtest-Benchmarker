@@ -428,9 +428,8 @@ while True:
                 csvfile.write("\n")
 
         except:
-            pass
+            time.sleep(wait)
         
-        #time.sleep(wait/2)
         if allServers:
             serverID += 1
         else:

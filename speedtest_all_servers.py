@@ -6,9 +6,15 @@ import time
 import datetime
 
 wait = 1
-resultsCSV = r"./results_all_servers.csv"
+resultsCSV = r"./Results/results_all_servers.csv"
 startTime = time.time()
 csvRows = []
+OCList = [12491]
+NAList = [12491]
+SAList = [12491]
+EUList = [12491]
+ASList = [6969]
+AFList = [12491]
 preselectedServers = [12491,2169,12492,6355,12493,2165,12495,234,12494,6153,28463,34083,21569,28910,40508,50344,19081,47668,30907,30593,26996,35058,24281,34948,40509,37211,14928,31122,14236,16974,14228,17384,14238,17386,14237,37499,16976,28032,21568,34143,34555,1536,29545,4036,2690,2599,11871,49594,49421,8864]
 
 
@@ -129,6 +135,39 @@ try:
             print("Please enter only whole numbers in Mbps.")
 
     while True:
+        serverIDList = []
+        regionsOrNum = input("\nSelect servers by region? Or press enter to select by number/all servers: ")
+        
+        if regionsOrNum == "":
+            pass
+
+        elif regionsOrNum[0] == "y" or regionsOrNum[0] == "Y":            
+            inputOC = input("Oceania: ")
+            if inputOC[0] == "y" or inputOC[0] == "Y":
+                serverIDList.extend(OCList)         
+            inputNA = input("North America: ")
+            if inputNA[0] == "y" or inputNA[0] == "Y":
+                serverIDList.extend(NAList)     
+            inputSA = input("South America: ")
+            if inputSA[0] == "y" or inputSA[0] == "Y":
+                serverIDList.extend(SAList)           
+            inputEU = input("Europe: ")
+            if inputEU[0] == "y" or inputEU[0] == "Y":
+                serverIDList.extend(EUList)          
+            inputAS = input("Asia: ")
+            if inputAS[0] == "y" or inputAS[0] == "Y":
+                serverIDList.extend(ASList)          
+            inputAF = input("Africa: ")
+            if inputAF[0] == "y" or inputAF[0] == "Y":
+                serverIDList.extend(AFList)
+            inputAN = input("Antarctica: ")
+            if inputAN[0] == "y" or inputAN[0] == "Y":
+                os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+                time.sleep(5)
+                os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+            allServers = False
+            break
+                
         serverIDCount = len(preselectedServers)
         numServers = input("\nHow many servers to test? Or press enter for all: ")
         try:

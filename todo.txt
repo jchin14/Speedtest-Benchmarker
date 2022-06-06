@@ -1,0 +1,7 @@
+Test if unit conversions work
+Json file
+Split server provider and city
+Expand list
+Median
+Collect results
+Tkinter GUI

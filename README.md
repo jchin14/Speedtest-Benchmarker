@@ -21,4 +21,5 @@
  Enter "50" servers.
  
  Wait around 20 mins for tests to complete. 
+ 
  DO NOT open the csv while running as the script will not be able to write data to it. Make a copy of the csv and open the copy if you want a sneak peak.

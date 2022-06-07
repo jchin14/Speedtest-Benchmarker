@@ -5,3 +5,4 @@ Median
 Collect results
 Column headers
 Manual servers to test
+Make list of all valid servers

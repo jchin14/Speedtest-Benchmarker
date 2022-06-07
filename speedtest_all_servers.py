@@ -1,4 +1,5 @@
-# Version 1.2.3
+#!/usr/bin/env python3
+# Version 1.3.0
 
 import os
 import csv
@@ -18,45 +19,13 @@ AFList = [12491]
 preselectedServers = [12491,2169,12492,6355,12493,2165,12495,234,12494,6153,28463,34083,21569,28910,40508,50344,19081,47668,30907,30593,26996,35058,24281,34948,40509,37211,14928,31122,14236,16974,14228,17384,14238,17386,14237,37499,16976,28032,21568,34143,34555,1536,29545,4036,2690,2599,11871,49594,49421,8864]
 
 
-def average_latency():
-    totalLatency = 0
-    colLatency = [x[4]for x in csvRows]
-    for value in colLatency:
-        totalLatency += float(value)
-    aveLatency = round(totalLatency / len(colLatency),2)
-    return aveLatency
-
-def average_jitter():
-    totalJitter = 0
-    colJitter = [x[5]for x in csvRows]
-    for value in colJitter:
-        totalJitter += float(value)
-    aveJitter = round(totalJitter / len(colJitter),2)
-    return aveJitter
-
-def average_dl_speed():
-    totalDL = 0
-    colDL = [x[6]for x in csvRows]
-    for value in colDL:
-        totalDL += float(value)
-    aveDL = round(totalDL / len(colDL),2)
-    return aveDL
-
-def average_ul_speed():
-    totalUL = 0
-    colUL = [x[8]for x in csvRows]
-    for value in colUL:
-        totalUL += float(value)
-    aveUL = round(totalUL / len(colUL),2)
-    return aveUL
-
-def average_pl():
-    totalPL = 0
-    colPL = [x[10]for x in csvRows]
-    for value in colPL:
-        totalPL += float(value)
-    avePL = round(totalPL / len(colPL),2)
-    return avePL
+def find_average(column):
+    totalValue = 0
+    colList = [x[column]for x in csvRows]
+    for value in colList:
+        totalValue += float(value)
+    averageValue = round(totalValue / len(colList),2)
+    return averageValue
 
 def total_tests():
     totalTests = 0
@@ -75,14 +44,12 @@ def total_data():
     totalData = round(totalData,2)
     return totalData
 
-def average_duration():
-    totalDuration = 0
-    colDuration = [x[13]for x in csvRows]
-    for value in colDuration:
-        totalDuration += float(value)
-    aveDuration = round(totalDuration / len(colDuration),2)
-    return aveDuration
-
+if 1 == 0:
+    try:
+        os.popen('explorer "https://www.aussiebroadband.com.au/lp/rise-of-gru/?kid=2CCG2Z"')
+        os.popen('explorer "https://members.superloop.com/signup/referral?referral_code=BJROXN&plan=1531"')
+    except:
+        pass
 
 try:
     print("BJROXN")
@@ -162,9 +129,12 @@ try:
                 serverIDList.extend(AFList)
             inputAN = input("Antarctica: ")
             if inputAN[0] == "y" or inputAN[0] == "Y":
-                os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
-                time.sleep(5)
-                os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+                try:
+                    os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+                    time.sleep(6.9)
+                    os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+                except:
+                    pass
             allServers = False
             break
                 
@@ -176,7 +146,10 @@ try:
                 break
             numServers = int(numServers)
             if numServers == 69 or numServers == 420:
-                os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+                try:
+                    os.popen('explorer "https://www.youtube.com/watch?v=dQw4w9WgXcQ"')
+                except:
+                    pass
             if numServers > 0 and numServers <= serverIDCount:
                 numServers = round(numServers/2)*2
                 if numServers == 0:
@@ -184,11 +157,11 @@ try:
                 serverIDList = preselectedServers[0:numServers]
                 allServers = False
                 break
-            print(f"Positive integers between 0 and {serverIDCount} only.")
+            print(f"Positive integers between 1 and {serverIDCount} only.")
         except:
             print(f"Please enter only whole numbers.")
-
     #print("\nBJROXN")
+
 except KeyboardInterrupt:
     exit()
 
@@ -236,10 +209,13 @@ while True:
         
         print(f"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print(f"Server ID: {serverID}")
+
+        if not allServers:
+            print(f"Testing server {serverIndex+1} of {numServers}\n")
         print("Test running please wait...")
         
         initialTime = time.time()
-        output = os.popen('speedtest -s ' + str(serverID)).read()
+        output = os.popen('speedtest -u Mbps -s ' + str(serverID)).read()
         print(output)
 
         testDuration = str(round(time.time() - initialTime,2))
@@ -347,10 +323,6 @@ while True:
                     downloadList[i] = ""
             result[7] = "".join(downloadList)
             downData = "".join(downDataList)
-            if downUnit == "k":
-                result[7] = str(float(result[7])/1000)
-            elif downUnit == "G":
-                result[7] = str(float(result[7])*1000)
             if downDataUnit == "k":
                 downData = str(float(downData)/1024)
             elif downDataUnit == "G":
@@ -391,10 +363,6 @@ while True:
                     uploadList[i] = ""
             result[9] = "".join(uploadList)
             upData = "".join(upDataList)
-            if upUnit == "k":
-                result[9] = str(float(result[9])/1000)
-            elif upUnit == "G":
-                result[9] = str(float(result[9])*1000)
             if upDataUnit == "k":
                 upData = str(float(upData)/1024)
             elif upDataUnit == "G":
@@ -448,18 +416,18 @@ while True:
                 for row in reader:
                     csvRows.append(row)
 
-            aveDL = average_dl_speed()
-            aveUL = average_ul_speed()
+            aveDL = find_average(6)
+            aveUL = find_average(8)
 
-            print(f"\nAverage Latency: {average_latency()} ms")
-            print(f"Average Jitter: {average_jitter()} ms")
+            print(f"\nAverage Latency: {find_average(4)} ms")
+            print(f"Average Jitter: {find_average(5)} ms")
             print(f"Average Download Speed: {aveDL} Mbps")
             print(f"Average Upload Speed: {aveUL} Mbps")
-            print(f"Average Packet Loss: {average_pl()}%")
+            print(f"Average Packet Loss: {find_average(10)}%")
 
             print(f"\nNumber of Tests: {total_tests()}")
             print(f"Total Data Used: {total_data()} MB")
-            print(f"Average Test Duration: {average_duration()} seconds")
+            print(f"Average Test Duration: {find_average(13)} seconds")
 
             print(f"\nPercentage of Plan Download Speed: {round((aveDL/downloadSpeed)*100,2)}%")
             print(f"Percentage of Plan Upload Speed: {round((aveUL/uploadSpeed)*100,2)}%")

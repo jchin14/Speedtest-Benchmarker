@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-# Version 1.3.0
+version = "1.3.1"
 
 import os
 import csv
 import time
 import datetime
+import subprocess
+
 
 wait = 1
 resultsCSV = r"./results_all_servers.csv"
@@ -52,9 +54,11 @@ if 1 == 0:
         pass
 
 try:
-    print("BJROXN")
+    print("BJROXN :)")
+    print(f"Version: {version}")
+
     while True:
-        downloadSpeed = input("\nEnter the download speed of your internet plan tier without over-provisioning. E.g. '250' for a NBN Superfast 250/25 plan: ")
+        downloadSpeed = input("\nEnter the download speed of your internet plan tier. E.g. '250' for a NBN Superfast 250/25 plan: ")
         try:
             downloadSpeed = int(downloadSpeed)
             if downloadSpeed > 0:
@@ -65,7 +69,7 @@ try:
             print("Please enter only whole numbers in Mbps.")
 
     while True:
-        uploadSpeed = input("\nEnter the upload speed of your internet plan tier without over-provisioning. E.g. '25' for a NBN Superfast 250/25 plan: ")
+        uploadSpeed = input("\nEnter the upload speed of your internet plan tier. E.g. '25' for a NBN Superfast 250/25 plan: ")
         try:
             uploadSpeed = int(uploadSpeed)
             if uploadSpeed > 0:
@@ -76,7 +80,7 @@ try:
             print("Please enter only whole numbers in Mbps.")
 
     while True:
-        downloadTES = input("\nEnter the download Typical Evening Speed as specified by your provider for your speed tier. E.g. '240' for a NBN Superfast 250/25 plan: ")
+        downloadTES = input("\nEnter the download Typical Evening Speed as specified by your provider. E.g. '240' for a NBN 250/25 plan: ")
         try:
             downloadTES = int(downloadTES)
             if downloadTES > 0:
@@ -87,7 +91,7 @@ try:
             print("Please enter only whole numbers in Mbps.")
 
     while True:
-        uploadTES = input("\nEnter the upload Typical Evening Speed as specified by your provider for your speed tier. If unspecified, press enter. E.g. '22' for a NBN Superfast 250/25 plan: ")
+        uploadTES = input("\nEnter the upload Typical Evening Speed. If unspecified, press enter. E.g. '22' for a NBN 250/25 plan: ")
         try:
             if uploadTES == "":
                 uploadTES = uploadSpeed * 0.9

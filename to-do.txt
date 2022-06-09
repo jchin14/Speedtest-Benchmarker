@@ -1,8 +1,21 @@
-Test if unit conversions work
-Json file for settings
+Test if unit conversions work Round results
+Json file for settings yaml
 Add to lists
 Median
 Collect results
 Column headers
 Manual servers to test
 Make list of all valid servers
+macOS Linux explorer command
+Read me and instructions
+IP address
+Time dp
+Manual servers to test
+=======
+Manual servers to test
+Make list of all valid servers
+Agree to terms if running
+Read me
+Fix branches
+Ask join sl referral/abb comp
+Regions if no answer specified

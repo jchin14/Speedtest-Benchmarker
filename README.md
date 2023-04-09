@@ -8,7 +8,7 @@
 # Instructions:
  To Run 50 Test Benchmark:
  
- Install latest python3 for your os.
+ Install latest python3 for your OS.
  
  Install the offical Ookla Speedtest CLI client. (On Windows, easiest way is to download the CLI client .exe from https://www.speedtest.net/apps/cli and pasting into C:\Windows\System32\speedtest.exe)
  

@@ -2,7 +2,7 @@ import os
 import time
 import datetime
 
-resultsCSV = r"./speedtest_results.csv"
+resultsCSV = r"outputs/speedtest-loop_results.csv"
 startTime = time.time()
 
 while True:
@@ -28,12 +28,12 @@ while True:
                     csvfile.write(",")
                 csvfile.write("\n")
         except:
-            pass
+            print("\nError: Failed to write to CSV file.")
 
     except:
         timeElapsed = time.time() - startTime
         print(f"\nTime Elapsed Since Start: {timeElapsed} seconds")
         
-        userInput = input("\nPaused. Press enter to resume or type exit. ")
+        userInput = input("\nPaused. Press enter to resume or type 'exit'. ")
         if userInput == "exit":
             exit()

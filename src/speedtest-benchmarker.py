@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-version = "1.3.1"
+version = "1.4"
 
 import os
 import csv
@@ -7,8 +7,9 @@ import time
 import datetime
 
 
+runAll = True
 wait = 1
-resultsCSV = r"./benchmark_results.csv"
+resultsCSV = r"outputs/benchmark_results.csv"
 startTime = time.time()
 csvRows = []
 OCList = [12491]
@@ -18,7 +19,6 @@ EUList = [12491]
 ASList = [6969]
 AFList = [12491]
 preselectedServers = [12491,2169,12492,6355,12493,2165,12495,234,12494,6153,28463,34083,21569,28910,40508,50344,19081,47668,30907,30593,26996,35058,24281,34948,40509,37211,14928,31122,14236,16974,14228,17384,14238,17386,14237,37499,16976,28032,21568,34143,34555,1536,29545,4036,2690,2599,11871,49594,49421,8864]
-
 
 def find_average(column):
     totalValue = 0
@@ -45,18 +45,12 @@ def total_data():
     totalData = round(totalData,2)
     return totalData
 
-if 1 == 0:
-    try:
-        os.popen('explorer "https://www.aussiebroadband.com.au/lp/rise-of-gru/?kid=2CCG2Z"')
-        os.popen('explorer "https://members.superloop.com/signup/referral?referral_code=BJROXN&plan=1531"')
-    except:
-        pass
 
 try:
     print("BJROXN :)")
     print(f"Version: {version}")
 
-    while True:
+    while runAll:
         downloadSpeed = input("\nEnter the download speed of your internet plan tier. E.g. '250' for a NBN Superfast 250/25 plan: ")
         try:
             downloadSpeed = int(downloadSpeed)
@@ -67,7 +61,7 @@ try:
         except:
             print("Please enter only whole numbers in Mbps.")
 
-    while True:
+    while runAll:
         uploadSpeed = input("\nEnter the upload speed of your internet plan tier. E.g. '25' for a NBN Superfast 250/25 plan: ")
         try:
             uploadSpeed = int(uploadSpeed)
@@ -78,7 +72,7 @@ try:
         except:
             print("Please enter only whole numbers in Mbps.")
 
-    while True:
+    while runAll:
         downloadTES = input("\nEnter the download Typical Evening Speed as specified by your provider. E.g. '240' for a NBN 250/25 plan: ")
         try:
             downloadTES = int(downloadTES)
@@ -89,7 +83,7 @@ try:
         except:
             print("Please enter only whole numbers in Mbps.")
 
-    while True:
+    while runAll:
         uploadTES = input("\nEnter the upload Typical Evening Speed. If unspecified, press enter. E.g. '22' for a NBN 250/25 plan: ")
         try:
             if uploadTES == "":
@@ -104,7 +98,7 @@ try:
         except:
             print("Please enter only whole numbers in Mbps.")
 
-    while True:
+    while runAll:
         serverIDList = []
         regionsOrNum = input("\n\nSelect servers by region? Or press enter to select by number/all servers: ")
         
@@ -209,9 +203,7 @@ while True:
                 serverID = serverIDList[serverIndex]
             except:
                 raise KeyboardInterrupt
-        if serverID == 8865:
-            serverID = 14159
-            
+        
         print(f"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print(f"Server ID: {serverID}")
 
@@ -448,7 +440,7 @@ while True:
             pass
 
         try:
-            userInput = input("\n\nPaused. Press enter to resume or type exit. ")
+            userInput = input("\n\nPaused. Press enter to resume or type 'exit'. ")
             if userInput != "":
                 print("")
                 exit()

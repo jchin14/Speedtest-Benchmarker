@@ -1,21 +1,27 @@
-Test if unit conversions work Round results
+Test if unit conversions work, round results
+Github branches
+Loop main .py
+Pyinstaller creator
+Find average of last results to find when settled
 Json file for settings yaml
 Add to lists
 Median
 Collect results
+Package speedtest.exe
 Column headers
 Manual servers to test
 Make list of all valid servers
-macOS Linux explorer command
-Read me and instructions
 IP address
 Time dp
 Manual servers to test
-=======
-Manual servers to test
-Make list of all valid servers
 Agree to terms if running
-Read me
 Fix branches
-Ask join sl referral/abb comp
-Regions if no answer specified
+SL referral
+Regions if no answer specified 
+Remove outliers
+Domestic server list and only test by city name list
+Down data unit
+Read old csvs and display data
+Convert MB to TB
+Save a screenshot of the results at the end
+Rename the csv to something useful once done as if you run the script again it will either add to the csv or not run at all depending on the options you have chosen

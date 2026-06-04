@@ -1,7 +1,17 @@
 version = "v2.0.0"
 
 from tkinter import ttk
-from tkinter import * 
+from tkinter import *
+
+
+def reset():
+    e1.delete(0, END)
+    e2.delete(0, END)
+    e1.focus()
+
+
+def login():
+    pass
 
 
 window = Tk()
@@ -9,7 +19,7 @@ window.title("Settings")
 window.geometry("700x500")
 
 
-Label(window,text="Speedtest Benchmarker {version}",font=('Helvetica',18,'bold')).grid(row=0,column=3)
+Label(window, text=f"Speedtest Benchmarker {version}", font=("Helvetica", 18, "bold")).grid(row=0, column=3)
 Label(window,text="Username:").grid(row=2,column=2)
 Label(window,text="Password:").grid(row=4,column=2)
 

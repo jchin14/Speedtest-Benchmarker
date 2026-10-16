@@ -1,0 +1,8 @@
+# Server IDs from the original v1 benchmark: Australian servers first, then
+# a spread of international ones. IDs change over time; dead servers are
+# reported as failures and skipped. Find current IDs with `speedtest-benchmarker servers`.
+12491 2169 12492 6355 12493 2165 12495 234 12494 6153
+28463 34083 21569 28910 40508 50344 19081 47668 30907 30593
+26996 35058 24281 34948 40509 37211 14928 31122 14236 16974
+14228 17384 14238 17386 14237 37499 16976 28032 21568 34143
+34555 1536 29545 4036 2690 2599 11871 49594 49421 8864

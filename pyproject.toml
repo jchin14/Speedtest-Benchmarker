@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "speedtest-benchmarker"
+version = "2.0.0"
+description = "Benchmark your internet connection against many Speedtest servers and summarize the results."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["speedtest", "benchmark", "network", "isp", "bandwidth"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Networking :: Monitoring",
+]
+
+[project.urls]
+Homepage = "https://github.com/jchin14/Speedtest-Benchmarker"
+Issues = "https://github.com/jchin14/Speedtest-Benchmarker/issues"
+
+[project.scripts]
+speedtest-benchmarker = "speedtest_benchmarker.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/speedtest_benchmarker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

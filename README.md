@@ -2,9 +2,10 @@
 
 [![CI](https://github.com/jchin14/Speedtest-Benchmarker/actions/workflows/ci.yml/badge.svg)](https://github.com/jchin14/Speedtest-Benchmarker/actions/workflows/ci.yml)
 
-Run [Ookla Speedtest](https://www.speedtest.net/apps/cli) against many servers, log every result to a CSV, and get a summary of how your connection really performs, including how it compares to the plan you pay for.
+Run [Ookla Speedtest](https://www.speedtest.net/apps/cli) against many servers, log every result to CSV, and see how your connection compares to the plan you pay for.
 
-A single test against your closest server tells you very little. Benchmarking across many servers (domestic and international) shows consistency, peering quality and whether your ISP delivers its advertised speeds.
+- One test to the nearest server tells you little.
+- Many servers (domestic and international) show consistency, peering quality and whether your ISP delivers.
 
 ```
 $ speedtest-benchmarker run --nearby 3 --plan 250/25

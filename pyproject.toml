@@ -9,7 +9,7 @@ description = "Benchmark your internet connection against many Speedtest servers
 readme = "README.md"
 license = "PolyForm-Noncommercial-1.0.0"
 license-files = ["LICENSE"]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = []
 keywords = ["speedtest", "benchmark", "network", "isp", "bandwidth"]
 classifiers = [

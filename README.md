@@ -28,7 +28,7 @@ Versus your 250/25 Mbps plan (median):
 
 ## Install
 
-You need Python 3.9+ and the official **Ookla Speedtest CLI** (not the `speedtest-cli` pip package) on your `PATH`:
+You need Python 3.10+ and the official **Ookla Speedtest CLI** (not the `speedtest-cli` pip package) on your `PATH`:
 
 | OS | Install |
 | --- | --- |

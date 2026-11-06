@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Python 3.10 or newer is now required (3.9 is end-of-life and no longer available on GitHub runners).
+
 ## 2.0.0
 
 Complete rewrite.

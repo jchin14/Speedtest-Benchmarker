@@ -92,6 +92,10 @@ pip install -e ".[dev]"
 pytest && ruff check .
 ```
 
+## Support
+
+If you find this useful and can afford to, support is appreciated: [buy me a coffee](https://buymeacoffee.com/jchin14). Just getting started, the domain, hosting, Cloudflare Workers and Apple and Google developer accounts add up to a few hundred dollars. Your support helps me keep making tools that are helpful for everyone.
+
 ## License
 
 This project is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE).
